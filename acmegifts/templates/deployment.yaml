@@ -1,0 +1,138 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: front-end-ui-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: front-end-ui
+    spec:
+      containers:
+      - name: front-end-ui
+        image: acmegifts/front-end-ui:latest
+        ports:
+        - containerPort: 9443
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: microservice-auth-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: microservice-auth
+    spec:
+      containers:
+      - name: microservice-auth
+        image: acmegifts/microservice-auth:latest
+        ports:
+        - containerPort: 9443
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: microservice-user-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: microservice-user
+    spec:
+      containers:
+      - name: microservice-user
+        image: acmegifts/microservice-user:latest
+        ports:
+        - containerPort: 9443
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: microservice-group-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: microservice-group
+    spec:
+      containers:
+      - name: microservice-group
+        image: acmegifts/microservice-group:latest
+        ports:
+        - containerPort: 9443
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: microservice-occasion-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: microservice-occasion
+    spec:
+      containers:
+      - name: microservice-occasion
+        image: acmegifts/microservice-occasion:latest
+        ports:
+        - containerPort: 9443
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: microservice-notification-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: microservice-notification
+    spec:
+      containers:
+      - name: microservice-notification
+        image: acmegifts/microservice-notification:latest
+        ports:
+        - containerPort: 9443
+        - containerPort: 9080
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: microservice-notification11-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: microservice-notification11
+    spec:
+      containers:
+      - name: microservice-notification11
+        image: acmegifts/microservice-notification-v1-1:latest
+        ports:
+        - containerPort: 9443
+        - containerPort: 9080
